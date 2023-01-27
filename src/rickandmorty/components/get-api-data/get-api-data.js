@@ -16,6 +16,7 @@ export class GetApiData extends LitElement {
        * @type {String}
        */
       method: {type: String},
+      page: {type: String},
     };
   }
 
@@ -23,7 +24,9 @@ export class GetApiData extends LitElement {
     super();
     this.url = '';
     this.method = '';
-    console.log(this.url, this.method)
+  }
+  updated(){
+    this.getData();
   }
 
   getData(){
@@ -32,13 +35,23 @@ export class GetApiData extends LitElement {
     .then((data) => this._sendData(data))
     .catch((error) => console.error('Failed Request :/',error))
   }
-
   _sendData(data){
+    const CustomData = [];
+    data?.results.forEach(element => {
+      CustomData.push({
+        id: element.id,
+        image: element.image,
+        name: element.name,
+        gender: element.gender,
+        species: element.species,
+        location: element.location.name,
+        status: element.status
+      })
+    });
     this.dispatchEvent(new CustomEvent('ApiData', {
-        bubbles: true,
-        detail: data.results
+        detail: {pages: data.info.pages, data: CustomData},
     }))
-    console.log('Event Request!',data.results);
+    console.log('Event Request!',data);
   }
 
 }

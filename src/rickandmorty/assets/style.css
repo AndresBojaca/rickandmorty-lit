@@ -2,25 +2,52 @@
 
 :root{
     --bg-primary-color: #14203a;
-    --text-primary-color: #b2e93b;
+    --text-primary-color: #3be984;
 }
 *{
     box-sizing: border-box;
     margin: 0;
-    font-family: 'Poppins', sans-serif;
-
+    
 }
 body{
-    background-color: var(--bg-primary-color);
-}
+        font-family: 'Poppins', sans-serif;
+        background-color: var(--bg-primary-color);
+    }  
+   ::-webkit-scrollbar {
+        width: 10px;
+    }
+  ::-webkit-scrollbar-track {
+        background: #00000032;
+    }
+  ::-webkit-scrollbar-thumb {
+        background: #888;
+    }
+  ::-webkit-scrollbar-thumb:hover {
+        background: #555;
+    }
+
 main{
     height: 100%;
     width: 100%;
     padding: 3rem;
+    /* display: grid; */
+    /* place-items: center; */
 }
-@media (min-width: 1300px) {
+
+/* animation: fadeIn .4s ease-in */
+@keyframes fadeIn {
+  0%{
+    opacity: 0;
+  }
+  100%{
+    opacity: 1;
+  }
+}
+
+
+@media (min-width: 1200px) {
     main{
-        width: 72rem;
+        width: 90rem;
         margin: auto;
     }
 }
