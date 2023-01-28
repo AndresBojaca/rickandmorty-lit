@@ -22,7 +22,7 @@ export class GetApiData extends LitElement {
 
   constructor() {
     super();
-    this.url = '';
+    this.url = 'd';
     this.method = '';
   }
   updated(){
@@ -36,8 +36,14 @@ export class GetApiData extends LitElement {
     .catch((error) => console.error('Failed Request :/',error))
   }
   _sendData(data){
+
+    let makeData = [];
     const CustomData = [];
-    data?.results.forEach(element => {
+
+    //If data contains results index
+    data.results ? makeData = [...data.results] : makeData = [data]
+    
+    makeData.forEach(element => {
       CustomData.push({
         id: element.id,
         image: element.image,
@@ -45,14 +51,17 @@ export class GetApiData extends LitElement {
         gender: element.gender,
         species: element.species,
         location: element.location.name,
-        status: element.status
+        status: element.status,
+        episodes: element.episode,
       })
     });
     this.dispatchEvent(new CustomEvent('ApiData', {
-        detail: {pages: data.info.pages, data: CustomData},
+        detail: {
+          pages: data.info?.pages,
+          data: CustomData
+        },
     }))
-    console.log('Event Request!',data);
-  }
+}
 
 }
 

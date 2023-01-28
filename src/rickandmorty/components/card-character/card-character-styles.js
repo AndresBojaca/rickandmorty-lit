@@ -41,6 +41,7 @@ export const CharacterStyles = css`
             font-size: .8rem;
           }
           span.card__name{
+            text-align: center;
             font-size: 1.2rem;
             font-weight: 600;
             color: var(--text-primary-color);
@@ -53,6 +54,14 @@ export const CharacterStyles = css`
             padding: 1rem;
             border-radius: 0 .4rem .4rem .4rem;
             z-index: 9;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+          }
+          span.card__gender{
+            font-size: 1.3rem;
+            margin-left: .5rem;
           }
           .card-image{
             flex: 2 1 0%;
@@ -77,6 +86,19 @@ export const CharacterStyles = css`
           .nodata-text{
             color: var(--text-primary-color);
             width: 100%;
+          }
+          span.famale-character{
+            color: pink;
+          }
+          span.male-character{
+            color: blue;
+          }
+          .viewmore-btn{
+            background-color: rgba(0,0,0,0.3);
+            padding: .5rem;
+            max-width: max-content;
+            margin-top: .5rem;
+            border-radius: .4rem;
           }
           [data-status="Alive"],
           [data-status="Dead"],
