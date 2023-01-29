@@ -47,7 +47,7 @@ export class ListComponent extends LitElement {
     this.url = `https://rickandmortyapi.com/api/character?page=`;
     this.method = "GET";
     this.CurrentPage = 1;
-    this.ApiStatus = true;
+    this.ApiStatus = false;
     this.imgStart = 'https://occ-0-3361-3933.1.nflxso.net/dnm/api/v6/LmEnxtiAuzezXBjYXPuDgfZ4zZQ/AAAABWT5HIl9YXE1ZG5Khq2rGPAsxwcnKPhqJMO3E2WiZBVNemNHAlH148400SKvcFoxJFZsxLBpOCb31CliGnE3RYbxVAyHf10wyEfqZHliqF0z.png?r=a6e'
     this.AllPages = 0;
   }

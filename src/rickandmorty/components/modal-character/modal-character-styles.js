@@ -22,7 +22,7 @@ export const ModalStyles = css`
         background-color: var(--bg-primary-color);
         padding: 2rem 0;
         position: relative;
-        animation: fadeIn .3s ease-in;
+        animation: fadeInScale .3s ease-in;
         border-radius: 1rem;
     }
     .modal__dialog::before {
@@ -45,6 +45,7 @@ export const ModalStyles = css`
     .card__image{
         border-radius: 1rem;
         width: 100%;
+        animation: 1s fadeIn ease-in
     }
     .card__id{
         font-size: 1.2rem;
@@ -159,7 +160,7 @@ export const ModalStyles = css`
       }
       
 
-    @keyframes fadeIn {
+    @keyframes fadeInScale {
         0%{
             opacity: 0;
             transform: scale(0.8);
@@ -167,6 +168,14 @@ export const ModalStyles = css`
         100%{
             opacity: 1;
             transform: scale(1);
+        }
+    }
+    @keyframes fadeIn {
+        0%{
+            opacity: 0;
+        }
+        100%{
+            opacity: 1;
         }
     }
 `;
