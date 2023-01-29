@@ -11,10 +11,15 @@ export const PaginationStyles = css`
   align-items: center;
   border-radius: .2rem;
   animation: fadeIn .4s ease-in;
+  transition: opacity .4s;
 }
 .pagination a.active{
   background-color: var(--text-primary-color);
   color: var(--bg-primary-color)
+}
+.pagination .disabled{
+  pointer-events: none;
+  opacity: 0.5
 }
 .pagination a:nth-child(1) {
   rotate: 180deg

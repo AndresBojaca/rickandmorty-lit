@@ -37,16 +37,7 @@ export class PaginationComponent extends LitElement {
   willUpdate(){
     this._makePages()
   }
-  // attributeChangedCallback(name, oldValue, newValue){
-  //   console.log(oldValue, newValue)
-  //   if(newValue === oldValue){
-  //     console.log('no se puede hacer el for');
-  //   }
-  // }
-  // firstUpdated(){
-  //   this._makePages(42)
-  // }
-
+  
   _makePages(){
     for(let index = 1; index <= this.AllPages; index++) {
         this.ArrayOfPages.push(index)
@@ -96,13 +87,14 @@ export class PaginationComponent extends LitElement {
   render() {
     return html`
     <nav class="pagination">
-        <a @click='${this._ChangePage}' data-action-type="prev">➜</a>
+        <a @click='${this._ChangePage}' data-action-type="prev" class="${this.CurrentPage == 1 && 'disabled'}">➜</a>
         <div class="pagination__pages">
           <div class="pagination__pages--container">
+          ${console.log(this.ArrayOfPages)}
           ${this.ArrayOfPages.map((element) => html `<a class="${this.CurrentPage === element ? 'active' : ''}" @click='${this._SetPage}' data-action-type='${element}'>${element}</a>`)}
           </div>
         </div>
-        <a @click='${this._ChangePage}' data-action-type="next">➜</a>
+        <a @click='${this._ChangePage}' data-action-type="next" class="${this.CurrentPage == this.AllPages && 'disabled'}">➜</a>
     </nav>
     `;
   }
