@@ -3,10 +3,18 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <title>Lit Starter Kit</title>
+    <title>RickAndMorty API</title>
+    <link rel="stylesheet" href="./src/rickandmorty/assets/style.css">
   </head>
   <body>
-    <a href="/src/dev/index.html">Component Demo</a>
-    <a href="/src/rickandmorty/index.html">RickAndMorty Demo</a>
+    <get-api-data></get-api-data>
+    <main>
+      <list-component></list-component>
+    </main>
+    <!-- Scripts -->
+    <script src="../../node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
+    <script src="../../node_modules/lit/polyfill-support.js"></script>
+    <script type="module" src="./src/rickandmorty/components/get-api-data/get-api-data.js"></script>
+    <script type="module" src="./src/rickandmorty/components/list-component/list-component.js"></script>
   </body>
 </html>

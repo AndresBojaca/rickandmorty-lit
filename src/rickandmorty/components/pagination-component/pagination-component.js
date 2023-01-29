@@ -9,12 +9,12 @@ export class PaginationComponent extends LitElement {
        * Current Page
        * @type {string}
        */
-      CurrentPage: {type: String},
+      CurrentPage: {type: Number},
       /**
        * All Pages Number
        * @type {string}
        */
-      AllPages: {type: String},
+      AllPages: {type: Number},
       /**
      * Array Of Pages
      * @type {string}
@@ -32,13 +32,17 @@ export class PaginationComponent extends LitElement {
     this.CurrentPage = 1;
     this.ArrayOfPages = [];
   }
-  firstUpdated(){
+
+  connectedCallback(){
+    super.connectedCallback()
+    //Make de Pages
     this._makePages()
   }
+
   _makePages(){
-    for (let index = 1; index <= this.AllPages; index++) {
-      this.ArrayOfPages.push(index)
-    }
+    for(let index = 1; index <= this.AllPages; index++) {
+        this.ArrayOfPages.push(index)
+      }
   }
 
   _SetPage(event){
@@ -84,7 +88,7 @@ export class PaginationComponent extends LitElement {
         <a @click='${this._ChangePage}' data-action-type="prev">➜</a>
         <div class="pagination__pages">
           <div class="pagination__pages--container">
-          ${this.ArrayOfPages.map((element) => html `<a class="${this.CurrentPage === element && 'active'}" @click='${this._SetPage}' data-action-type='${element}'>${element}</a>`)}
+          ${this.ArrayOfPages.map((element) => html `<a class="${this.CurrentPage === element ? 'active' : ''}" @click='${this._SetPage}' data-action-type='${element}'>${element}</a>`)}
           </div>
         </div>
         <a @click='${this._ChangePage}' data-action-type="next">➜</a>

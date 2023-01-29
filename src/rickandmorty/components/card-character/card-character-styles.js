@@ -39,9 +39,9 @@ export const CharacterStyles = css`
             display: flex;
             align-items: center;
             font-size: .8rem;
+            text-align: center;
           }
           span.card__name{
-            text-align: center;
             font-size: 1.2rem;
             font-weight: 600;
             color: var(--text-primary-color);
@@ -59,9 +59,10 @@ export const CharacterStyles = css`
             align-items: center;
             justify-content: center;
           }
-          span.card__gender{
+          .card__gender{
             font-size: 1.3rem;
             margin-left: .5rem;
+            color: white;
           }
           .card-image{
             flex: 2 1 0%;
@@ -105,20 +106,20 @@ export const CharacterStyles = css`
           [data-status="unknown"]{
             height: 20px;
           }
-          [data-status="Dead"]::after {
+          [data-status="Dead"]::before {
               content: "•";
               font-size: 2.5rem;
               display: block;
               color: red;
           }
-          [data-status="Alive"]::after {
+          [data-status="Alive"]::before {
               content: "•";
               font-size: 2.5rem;
               display: block;
               color: #01ff00;
               margin-bottom: 2px;
           }
-          [data-status="unknown"]::after {
+          [data-status="unknown"]::before {
               content: "•";
               font-size: 2.5rem;
               display: block;

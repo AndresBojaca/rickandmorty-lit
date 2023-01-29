@@ -16,17 +16,22 @@ export class GetApiData extends LitElement {
        * @type {String}
        */
       method: {type: String},
-      page: {type: String},
+      /**
+     * The method type of the request.
+     * @type {String}
+     */
+      ApiStatus: {type: String}
     };
   }
 
   constructor() {
     super();
-    this.url = 'd';
+    this.url = '';
     this.method = '';
+    this.ApiStatus = 'false';
   }
   updated(){
-    this.getData();
+    this.ApiStatus !== 'false' && this.getData()
   }
 
   getData(){

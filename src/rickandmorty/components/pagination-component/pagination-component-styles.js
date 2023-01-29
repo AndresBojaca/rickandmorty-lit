@@ -19,12 +19,13 @@ export const PaginationStyles = css`
 .pagination a:nth-child(1) {
   rotate: 180deg
 }
-.pagination{
+.pagination {
   display: flex;
   gap: 5px;
   list-style: none;
-  padding: 0;
+  padding: 0px;
   margin: 2rem 0;
+  justify-content: center;
 }
 .pagination__pages{
   display: flex;
@@ -36,11 +37,16 @@ export const PaginationStyles = css`
   gap: 0.4rem;
   justify-content: center;
 }
-@keyframes fadeIn {
-  0%{
-    opacity: 0;
+
+  @media(max-width: 768px){
+    .pagination{
+    } 
   }
-  100%{
-    opacity: 1;
-  }
-}`;
+  @keyframes fadeIn {
+    0%{
+      opacity: 0;
+    }
+    100%{
+      opacity: 1;
+    }
+  }`;

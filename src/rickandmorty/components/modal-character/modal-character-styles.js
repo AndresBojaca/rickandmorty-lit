@@ -44,6 +44,7 @@ export const ModalStyles = css`
     }
     .card__image{
         border-radius: 1rem;
+        width: 100%;
     }
     .card__id{
         font-size: 1.2rem;
@@ -54,7 +55,7 @@ export const ModalStyles = css`
         display: flex;
         justify-content: center;
         border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        padding-bottom: 2rem;
+        padding: 0 2rem 2rem 2rem;
         align-items: center;
     }
     .modal__content {
@@ -117,6 +118,18 @@ export const ModalStyles = css`
         color: yellow;
     }
 
+    @media (max-width: 768px) {
+        .card__info {
+            width: auto;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal__content div{
+            width: 50%;
+        }
+    }
+
     @media (max-width: 576px) {
         .modal__content {
             flex-direction: column;
@@ -137,9 +150,11 @@ export const ModalStyles = css`
       .modal__content::-webkit-scrollbar-thumb:hover {
             background: #555;
         }
-
         .modal__dialog {
-            margin: 2rem 0;
+            margin: 1.5rem;
+        }
+        .modal__content div{
+            width: 100%;
         }
       }
       

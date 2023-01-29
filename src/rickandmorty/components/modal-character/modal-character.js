@@ -72,7 +72,7 @@ export class ModalCharacter extends LitElement {
   render() {
     return html`
     ${this.Status === 'true' ? html`
-    <get-api-data @ApiData="${this._getDataApi}" url="${this.url + this.CharacterID}" method="${this.method}"></get-api-data>
+    <get-api-data @ApiData="${this._getDataApi}" url="${this.url + this.CharacterID}" ApiStatus="true" method="${this.method}"></get-api-data>
     <div class="modal">
       <div class="modal__dialog">
         <div class="modal__header">
@@ -80,7 +80,9 @@ export class ModalCharacter extends LitElement {
           <span class="card__name">${this.CharacterName}</span>
         </div>
         <div class="modal__content">
-          <img class="card__image" src="${this.CharacterImage}"/>
+          <div>
+            <img class="card__image" src="${this.CharacterImage}"/>
+          </div>
           <div class="card__info">
             <strong>Status:</strong>
             <span data-status="${this.CharacterStatus}">${this.CharacterStatus}</span>

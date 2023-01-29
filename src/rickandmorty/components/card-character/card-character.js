@@ -36,7 +36,6 @@ export class CardCharacter extends LitElement {
     let character = event.target
     let characterid = character.getAttribute('data-character-id');
     this.CharacterID = characterid;
-    console.log(this.CharacterID)
     this.ModalStatus = true;
   }
   _ChangeModalStatusClose(event){
@@ -54,14 +53,15 @@ export class CardCharacter extends LitElement {
           return html `
           <div class="card">
             <div class="card__info">
+            <p class="card__id"> #${character.id}</p>
                 <span class="card__name">
-                  <p class="card__id"> #${character.id}</p>
-                  ${character.name}
-                  <span class="card__gender"> - ${character.gender === 'Female' ? `♀️` : `♂️`} </span>
+                  ${character.name} - ${character.gender === 'Female' ? `♀️` : `♂️`}
                 </span>
-                <span data-status="${character.status}">${character.status}-<strong> ${character.species}</strong></span>
+                <span data-status="${character.status}">${character.status}-
+                  <strong> ${character.species}</strong>
+                </span>
               <span>${character.type}</span>
-              <span>${character.location}</span>
+              <span>🌎 ${character.location}</span>
               <span class="viewmore-btn" @click="${this._ChangeModalStatusOpen}" data-character-id='${character.id}'>More Info</span>
             </div>
             <div class="card-image">

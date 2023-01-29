@@ -2,7 +2,7 @@
 
 :root{
     --bg-primary-color: #14203a;
-    --text-primary-color: #3be984;
+    --text-primary-color: #52c916;
 }
 *{
     box-sizing: border-box;
@@ -41,10 +41,15 @@ main{
   }
 }
 
-
-@media (min-width: 1200px) {
+@media (min-width: 1024px) {
+  main{
+      width: 65rem;
+      margin: auto;
+  }
+}
+@media (min-width: 1300px) {
     main{
-        width: 90rem;
+        width: 80rem;
         margin: auto;
     }
 }
