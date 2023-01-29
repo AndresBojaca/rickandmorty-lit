@@ -28,6 +28,7 @@ export const CharacterStyles = css`
             position: relative;
             animation-name: fadeIn;
             animation-duration: .5s;
+            height: 172px;
           }
           .card:hover{
             transform: scale(1.03);
@@ -71,6 +72,7 @@ export const CharacterStyles = css`
             border-radius: .4rem 0 0 .4rem;
             width: 100%;
             height: 100%;
+            object-fit: cover;
           }
           .card__id{
             font-weight: 100;

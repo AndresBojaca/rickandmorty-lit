@@ -31,18 +31,29 @@ export class PaginationComponent extends LitElement {
     super();
     this.CurrentPage = 1;
     this.ArrayOfPages = [];
+    this.AllPages = 0;
   }
 
-  connectedCallback(){
-    super.connectedCallback()
-    //Make de Pages
+  willUpdate(){
     this._makePages()
   }
+  // attributeChangedCallback(name, oldValue, newValue){
+  //   console.log(oldValue, newValue)
+  //   if(newValue === oldValue){
+  //     console.log('no se puede hacer el for');
+  //   }
+  // }
+  // firstUpdated(){
+  //   this._makePages(42)
+  // }
 
   _makePages(){
     for(let index = 1; index <= this.AllPages; index++) {
         this.ArrayOfPages.push(index)
-      }
+    }
+    //Delete the Duplicates 
+    const dataArr = new Set(this.ArrayOfPages);
+    this.ArrayOfPages = [...dataArr];
   }
 
   _SetPage(event){

@@ -34,11 +34,6 @@ export class ListComponent extends LitElement {
        * @type {string}
        */
       ApiStatus: {type: Boolean},
-      /**
-       * All API Data Pages
-       * @type {string}
-       */
-      AllPages: {type: Number},
     };
   }
   static styles = [
@@ -46,14 +41,15 @@ export class ListComponent extends LitElement {
   ];
 
   constructor() {
+    //FirstUpdate
     super();
     this.characters = [];
     this.url = `https://rickandmortyapi.com/api/character?page=`;
     this.method = "GET";
     this.CurrentPage = 1;
-    this.ApiStatus = false;
+    this.ApiStatus = true;
     this.imgStart = 'https://occ-0-3361-3933.1.nflxso.net/dnm/api/v6/LmEnxtiAuzezXBjYXPuDgfZ4zZQ/AAAABWT5HIl9YXE1ZG5Khq2rGPAsxwcnKPhqJMO3E2WiZBVNemNHAlH148400SKvcFoxJFZsxLBpOCb31CliGnE3RYbxVAyHf10wyEfqZHliqF0z.png?r=a6e'
-    this.AllPages = 42;
+    this.AllPages = 0;
   }
 
   _ChangeApiStatus(){
@@ -62,14 +58,13 @@ export class ListComponent extends LitElement {
       this.ApiStatus = true;
     }, 2000);
   }
-  
+
   _getDataApi(event) {
     this.AllPages = event.detail.pages;
     this.characters = event.detail.data;
     //On Get Api Filtered equals to data characters
     this.filteredCharacters = this.characters;
   }
-
   _getFilter(event){
     this.filter = event.detail;
     this._findCharacter();
